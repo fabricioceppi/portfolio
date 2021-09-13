@@ -30,9 +30,9 @@
     text-rendering: geometricPrecision;
   }
 
-body {
-  overflow: hidden;
-}
+  body {
+    overflow: hidden;
+  }
 
 .full-box {
     height: 100vh;
@@ -58,8 +58,8 @@ body {
 }
 
 .giant {
-  font-size: 48px;
-  line-height: 48px;
+  font-size: 40px;
+  line-height: 40px;
 }
 
 ul {
@@ -94,6 +94,7 @@ footer ul:first-child {
 
 #main-components {
   background-color: rgb(6, 6, 6);
+
 }
 
 /* menu button and dynamic background*/
@@ -107,9 +108,110 @@ footer ul:first-child {
     width: 20px;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.5s, transform 0.8s;
+    transition: background-color 0.2s, transform 0.5s;
     transform-origin: center;
+    z-index: 2;
 }
+
+/* dynamic content main setup */
+
+.dynamic {
+  display: none;
+  transition: opacity 0.5s;
+}
+
+.dynamic.active {
+  display: block;
+}
+
+/* different dynamic blocks layout */
+
+.centered {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 16px;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.menu-items li {
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+
+.menu-items span {
+  display: inline-block;
+}
+
+.menu-items span:nth-of-type(odd) {
+  padding-right: 16px;
+}
+
+.menu-items span:nth-of-type(even) {
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 0.7px;
+    -webkit-text-stroke-color: #f1f1f1;
+    transition: transform 0.3s;
+}
+
+@media (hover:hover) {
+  .menu-items span:nth-of-type(even):hover {
+    -webkit-text-fill-color: #f1f1f1;
+    -webkit-text-stroke-color: transparent;
+    transform: translateX(16px);
+  }
+}
+
+/* building some animations */
+
+.appear-to-left {
+  opacity: 0;
+  animation-name: appear-to-left;
+  animation-duration: 0.4s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.appear-to-left:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.appear-to-left:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.appear-to-left:nth-child(4) {
+  animation-delay: 1s;
+}
+
+@keyframes appear-to-left {
+  0% {transform: translateX(100px);}
+  100% {transform: translateX(0);
+        opacity: 1;}
+}
+
+.just-appear {
+  opacity: 0;
+  animation-name: just-appear;
+  animation-duration: 0.2s;
+  animation-delay: 0.7;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes just-appear {
+  100% {opacity: 1;}
+}
+
+
+
+
 
 
 
