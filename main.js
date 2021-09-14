@@ -4,8 +4,15 @@
 
 const body = document.querySelector('body');
 const menu = document.getElementById('menu-button');
+
+// create an array with all the dynamic content blocks
+
 const dynamicContent = document.querySelectorAll('.dynamic');
+
+// a content counter beginning in 0
 let contentCursor = 0;
+
+// display menu when menu button clicked
 
 menu.addEventListener('click', () => {
     let backColor = contentCursor === 1 ? 'rgb(6, 6, 6)' : 'rgb(229, 41, 27)';
@@ -42,6 +49,8 @@ menu.addEventListener('click', () => {
     }
     updateContent();
 });
+
+// updateContent main function
 
 function updateContent() {
     for (let i = 0; i < dynamicContent.length; i++) {
