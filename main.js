@@ -3,15 +3,14 @@
 // Menu Toggle
 
 const body = document.querySelector('body');
-const mainComponents = document.getElementById('main-components');
 const menu = document.getElementById('menu-button');
 const dynamicContent = document.querySelectorAll('.dynamic');
 let contentCursor = 0;
 
 menu.addEventListener('click', () => {
     let backColor = contentCursor === 1 ? 'rgb(6, 6, 6)' : 'rgb(229, 41, 27)';
-    let rectWidth = Number(getComputedStyle(mainComponents).width.replace('px', ''));
-    let rectHeight = Number(getComputedStyle(mainComponents).height.replace('px', ''));
+    let rectWidth = Number(getComputedStyle(body).width.replace('px', ''));
+    let rectHeight = Number(getComputedStyle(body).height.replace('px', ''));
     let diam = Number(getComputedStyle(menu).width.replace('px', ''));
     let augmentBy;
 
@@ -27,7 +26,7 @@ menu.addEventListener('click', () => {
 
     setTimeout(() => {
         menu.style.transition = 'opacity 0.3s';
-        mainComponents.style.backgroundColor = backColor;
+        body.style.backgroundColor = backColor;
         menu.style.opacity = '0';
         setTimeout(() => {
             menu.style.backgroundColor = '#f1f1f1';
@@ -62,8 +61,8 @@ const mainBtn = document.getElementById('to-main');
 
 mainBtn.addEventListener('click', () => {
     contentCursor = 0;
-    console.log(contentCursor);
     updateContent();
+    body.style.backgroundColor = 'rgb(6, 6, 6)';
 });
 
 aboutBtn.addEventListener('click', () => {
