@@ -1,5 +1,7 @@
 // Dynamic portfolio main functionalities
 
+// Menu Toggle
+
 const body = document.querySelector('body');
 const mainComponents = document.getElementById('main-components');
 const menu = document.getElementById('menu-button');
@@ -19,7 +21,7 @@ menu.addEventListener('click', () => {
         augmentBy = (Math.sqrt(rectHeight**2 *2)) / diam;
     };
     augmentBy *= 2;
-    menu.style.transition = 'background-color 0.5s, transform 0.8s';
+    menu.style.transition = 'background-color 0.4s, transform 0.8s';
     menu.style.backgroundColor = backColor;
     menu.style.transform = `scale(${augmentBy})`;
 
@@ -50,4 +52,22 @@ function updateContent() {
     }
     dynamicContent[contentCursor].classList.add('active');
 }
+
+// Menu items setting
+
+const contactBtn = document.getElementById('m-contact');
+const aboutBtn = document.getElementById('m-about');
+const workBtn = document.getElementById('m-work');
+const mainBtn = document.getElementById('to-main');
+
+mainBtn.addEventListener('click', () => {
+    contentCursor = 0;
+    console.log(contentCursor);
+    updateContent();
+});
+
+aboutBtn.addEventListener('click', () => {
+    contentCursor = 2;
+    updateContent();
+});
 
