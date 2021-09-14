@@ -1,19 +1,16 @@
 // Dynamic portfolio main functionalities
 
-// Menu Toggle
-
+// Menu Toggle elements
 const body = document.querySelector('body');
 const menu = document.getElementById('menu-button');
 
 // create an array with all the dynamic content blocks
-
 const dynamicContent = document.querySelectorAll('.dynamic');
 
 // a content counter beginning in 0
 let contentCursor = 0;
 
 // display menu when menu button clicked
-
 menu.addEventListener('click', () => {
     let backColor = contentCursor === 1 ? 'rgb(6, 6, 6)' : 'rgb(229, 41, 27)';
     let rectWidth = Number(getComputedStyle(body).width.replace('px', ''));
@@ -51,7 +48,6 @@ menu.addEventListener('click', () => {
 });
 
 // updateContent main function
-
 function updateContent() {
     for (let i = 0; i < dynamicContent.length; i++) {
         if (dynamicContent[i].classList[1] === 'active') {
@@ -62,7 +58,6 @@ function updateContent() {
 }
 
 // Menu items setting
-
 const contactBtn = document.getElementById('m-contact');
 const aboutBtn = document.getElementById('m-about');
 const workBtn = document.getElementById('m-work');
@@ -76,6 +71,11 @@ mainBtn.addEventListener('click', () => {
 
 aboutBtn.addEventListener('click', () => {
     contentCursor = 2;
+    updateContent();
+});
+
+workBtn.addEventListener('click', () => {
+    contentCursor = 3;
     updateContent();
 });
 
