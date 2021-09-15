@@ -79,3 +79,27 @@ workBtn.addEventListener('click', () => {
     updateContent();
 });
 
+// work items show and hide functions
+
+const kodak = document.getElementById('kodak');
+const macula = document.getElementById('macula');
+const kodakArray = document.querySelectorAll('.kodak');
+const maculaArray = document.querySelectorAll('.macula');
+
+function showDetails(array) {
+    for (let i = 0; i < array.length; i++) {
+        array[i].classList.add('show');
+    }
+}
+
+function hideDetails(array) {
+    for (let i = 0; i < array.length; i++) {
+        array[i].classList.remove('show');
+    }
+}
+
+kodak.onmouseover = () => {showDetails(kodakArray)};
+kodak.onmouseleave = () => {hideDetails(kodakArray)};
+
+macula.onmouseover = () => {showDetails(maculaArray)};
+macula.onmouseleave = () => {hideDetails(maculaArray)};
