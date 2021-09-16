@@ -112,6 +112,10 @@ footer ul:first-child {
   cursor: pointer;
 }
 
+#contact2 {
+  cursor: pointer;
+}
+
 /* dynamic content main setup */
 
 main {
@@ -234,6 +238,94 @@ section h1 {
   display: none;
 }
 
+/* contact form styling */
+
+#contact-form {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.5s;
+  padding: 16px;
+  background-color: rgb(229, 41, 27);
+}
+
+form {
+  position: relative;
+  width: 100%;
+  padding: 16px;
+  max-width: 474px;
+  background-color: rgb(229, 41, 27);
+  border: 1px solid #f1f1f1;
+  border-radius: 2px;
+}
+
+form > div:first-of-type {
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+label, textarea,
+input, button {
+  display: block;
+}
+
+.input-pack {
+  margin-bottom: 16px;
+}
+
+label, input {
+  width: 100%;
+}
+
+label, button {
+  text-transform: uppercase;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+input, textarea, button {
+  border: 1px solid #f1f1f1;
+  background-color: rgb(229, 41, 27);
+  border-radius: 2px;
+  padding: 8px;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  margin-bottom: 16px;
+  height: 200px
+}
+
+button {
+  display: inline-block;
+  float: left;
+  cursor: pointer;
+}
+
+#status {
+  display: inline-block;
+  width: 100%;
+  padding-top: 16px;
+  text-transform: uppercase;
+}
+
+#close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
 /* text blocks animations */
 
 .appear-to-left {
@@ -310,6 +402,26 @@ section h1 {
 
   .two-columns-details {
     max-width: 450px;
+  }
+
+  #status {
+    float: left;
+    padding-left: 16px;
+    padding-top: 0;
+    width: auto;
+  }
+
+  .input-pack {
+    width: 50%;
+    float: left;
+  }
+
+  .input-pack:first-of-type {
+    padding-right: 8px;
+  }
+  
+  .input-pack:last-of-type {
+    padding-left: 8px;
   }
 
 }

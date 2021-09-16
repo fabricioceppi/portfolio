@@ -62,6 +62,9 @@ const contactBtn = document.getElementById('m-contact');
 const aboutBtn = document.getElementById('m-about');
 const workBtn = document.getElementById('m-work');
 const mainBtn = document.getElementById('to-main');
+const contactForm = document.getElementById('contact-form');
+const closeBtn = document.getElementById('close');
+const contactBtn2 = document.getElementById('contact2');
 
 mainBtn.addEventListener('click', () => {
     contentCursor = 0;
@@ -77,6 +80,21 @@ aboutBtn.addEventListener('click', () => {
 workBtn.addEventListener('click', () => {
     contentCursor = 3;
     updateContent();
+});
+
+contactBtn.addEventListener('click', () => {
+    contactForm.style.zIndex = '3';
+    contactForm.style.opacity = '1';
+});
+
+closeBtn.addEventListener('click', () => {
+    contactForm.style.zIndex = '-1';
+    contactForm.style.opacity = '0';
+});
+
+contactBtn2.addEventListener('click', () => {
+    contactForm.style.zIndex = '3';
+    contactForm.style.opacity = '1';
 });
 
 // work items show and hide details when hover (desktop only)
@@ -105,4 +123,29 @@ macula.onmouseleave = () => {hideDetails(maculaArray)};
 
 // Form submition actions
 
+const form = document.querySelector("form");
+
+async function handleSubmit(event) {
+  event.preventDefault();
+  var status = document.getElementById("status");
+  var data = new FormData(event.target);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      status.innerHTML = "There it goes! I will get back to you shortly";
+      form.reset();
+      setTimeout(() => {
+        status.innerHTML = '';
+      }, 2000);
+    })
+    .catch((error) => {
+      status.innerHTML = "There was a problem with your data. Please verify it or try it later";
+    });
+}
+form.addEventListener("submit", handleSubmit);
 
