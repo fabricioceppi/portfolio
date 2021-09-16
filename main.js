@@ -10,7 +10,7 @@ const dynamicContent = document.querySelectorAll('.dynamic');
 // a content counter beginning in 0
 let contentCursor = 0;
 
-// display menu when menu button clicked
+// display menu when menu with animations
 menu.addEventListener('click', () => {
     let backColor = contentCursor === 1 ? 'rgb(6, 6, 6)' : 'rgb(229, 41, 27)';
     let rectWidth = Number(getComputedStyle(body).width.replace('px', ''));
@@ -79,8 +79,7 @@ workBtn.addEventListener('click', () => {
     updateContent();
 });
 
-// work items show and hide functions
-
+// work items show and hide details when hover (desktop only)
 const kodak = document.getElementById('kodak');
 const macula = document.getElementById('macula');
 const kodakArray = document.querySelectorAll('.kodak');
@@ -103,3 +102,7 @@ kodak.onmouseleave = () => {hideDetails(kodakArray)};
 
 macula.onmouseover = () => {showDetails(maculaArray)};
 macula.onmouseleave = () => {hideDetails(maculaArray)};
+
+// Form submition actions
+
+

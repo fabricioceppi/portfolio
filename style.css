@@ -386,18 +386,6 @@ section h1 {
     height: calc(100vh - 112px);
   }
 
-  /*#work > h1 {
-    grid-area: left;
-  }
-
-  .show-in-desktop:first-of-type {
-    grid-area: center;
-  }
-
-  .show-in-desktop:last-of-type {
-    grid-area: right;
-  }*/
-
   .display-image {
     width: 450px;
     height: 254px;
