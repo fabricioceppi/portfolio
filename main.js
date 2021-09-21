@@ -149,3 +149,14 @@ async function handleSubmit(event) {
 }
 form.addEventListener("submit", handleSubmit);
 
+// fixing mobile relative height problems
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// fix when resizing
+window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+
